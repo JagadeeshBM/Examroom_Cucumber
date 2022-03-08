@@ -28,7 +28,7 @@ Feature: Candidate_Validate End to End Review process Flow for Eligibility Route
     #And close browser
 @AppApprove
   Scenario: Approve Application from Training program
-    Given TP switch to new tab in Chrome Browser
+    Given Launch Chrome Browser
     When TP opens URL "https://credentiauat.examroom.ai/"
     And TP click on GetStarted button
     And  TP Enters Email as "jmtrainingms1@mailinator.com" and password as "Exam@123"
@@ -40,6 +40,26 @@ Feature: Candidate_Validate End to End Review process Flow for Eligibility Route
     And Click on Submit Button for Approval
     Then Validate Approved success message
     Then login to candidate and validate approved status.
+  @RegisterForExam
+  Scenario: Candidate should be able to Register for Exam
+    Given Click on Register for Exam
+    When Candidate select Nurse Aide Written exam
+    And Select online exam radio button
+    And Select Timezone
+    And select date
+    And Select Range
+    And Select Avilable Slots
+    And Click on Add Cart
+    Then Validate Added to cart Successfully Message
+    When click on pay now
+    And Enter the card details and click on Save Card
+    Then Validate Card Saved Successfully message
+    When Click on saved card radio button
+    And Enter CVV
+    And Click on Pay button
+    Then Validate Payment Successful message
+    And Validate Status should be changed to Exam scheduled in Exam Schedule Board.
+    And Click on Dashboard and take the screen shot of it
 
 
 
